@@ -111,10 +111,6 @@ public class FootAccessParser extends AbstractAccessParser implements TagParser 
             return WayAccess.CAN_SKIP;
         }
 
-        // via_ferrata is too dangerous, see #1326
-        if ("via_ferrata".equals(highwayValue))
-            return WayAccess.CAN_SKIP;
-
         int firstIndex = way.getFirstIndex(restrictionKeys);
         if (firstIndex >= 0) {
             String firstValue = way.getTag(restrictionKeys.get(firstIndex), "");
