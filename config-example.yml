@@ -143,7 +143,6 @@ graphhopper:
   #   elevation and will remove the extra points that long edge sampling added
   graph.elevation.way_point_max_distance: 10
 
-
   #### Country-dependent defaults for max speeds ####
 
   # This features sets a maximum speed in 'max_speed' encoded value if no maxspeed tag was found. It is country-dependent
