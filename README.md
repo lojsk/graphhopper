@@ -1,3 +1,38 @@
+curl -i -X POST \
+'https://graphhopper.com/api/1/route?key=cc2c31ef-48ee-4b57-84ee-20b5e580046a' \
+-H 'Content-Type: application/json' \
+-d '{
+"profile": "hike",
+"points": [
+[46.547412,11.821222],
+[46.540389,11.827984],
+[46.539651,11.824916],
+[46.536255,11.822037]
+]
+}'
+scp -r appeak-services:/root/ors/app/openrouteservice/ /Users/jan/dev/java/openrouteservice/
+
+
+java -D"dw.graphhopper.datareader.file=berlin-latest.osm.pbf" -jar graphhopper*.jar server config-example.yml
+
+
+wget https://repo1.maven.org/maven2/com/graphhopper/graphhopper-web/9.1/graphhopper-web-9.1.jar https://raw.githubusercontent.com/graphhopper/graphhopper/9.x/config-example.yml http://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf
+java -D"dw.graphhopper.datareader.file=berlin-latest.osm.pbf" -jar graphhopper*.jar server config-example.yml
+
+
+java -D"dw.graphhopper.datareader.file=slovenia-latest.osm.pbf" -jar graphhopper*.jar server config-example.yml
+
+
+java -D"dw.graphhopper.datareader.file=slovenia-latest.osm.pbf" -jar web/target/graphhopper*.jar server config-example.yml
+
+
+osmium merge file1.osm file2.osm -o merged.osm
+
+osmium merge slovenia-latest.osm.pbf alps-latest.osm.pbf -o merged.osm.pbf
+
+osmosis --rx slovenia-latest.osm.pbf --rx alps-latest.osm.pbf --rx --merge --wx merged.osm.pdf
+
+
 # GraphHopper Routing Engine
 
 ![Build Status](https://github.com/graphhopper/graphhopper/actions/workflows/build.yml/badge.svg?branch=master)
