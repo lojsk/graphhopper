@@ -117,7 +117,7 @@ graphhopper:
   graph.elevation.provider: multi
 
   # default location for cache is /tmp/srtm
-  # graph.elevation.cache_dir: ./srtmprovider/
+  graph.elevation.cache_dir: ../data/elevation
 
   # If you have a slow disk or plenty of RAM change the default MMAP to:
   # graph.elevation.dataaccess: RAM_STORE
